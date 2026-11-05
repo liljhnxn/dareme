@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt, useChainId } from "wagmi";
 import { DARE_ME_ABI } from "@/contracts/dareMeAbi";
 import { DARE_ME_ADDRESS, IS_CONTRACT_CONFIGURED } from "@/config/wagmi";
-import { botchainTestnet } from "@/config/chain";
+import { activeChain } from "@/config/chain";
 import { X, Sparkles, AlertCircle, Loader2, CheckCircle2, ExternalLink } from "lucide-react";
 import { DareCategory } from "@/types/dare";
 
@@ -24,7 +24,7 @@ const CATEGORIES: { label: DareCategory; desc: string; icon: string }[] = [
 export function CreateDareModal({ isOpen, onClose, onSuccess }: CreateDareModalProps) {
   const { isConnected } = useAccount();
   const chainId = useChainId();
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== activeChain.id;
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -86,7 +86,7 @@ export function CreateDareModal({ isOpen, onClose, onSuccess }: CreateDareModalP
     }
 
     if (isWrongNetwork) {
-      setValidationError("Please switch to Botchain Testnet (Chain ID 968) before publishing.");
+      setValidationError("Please switch to Botchain Mainnet (Chain ID 677) before publishing.");
       return;
     }
 
@@ -154,12 +154,12 @@ export function CreateDareModal({ isOpen, onClose, onSuccess }: CreateDareModalP
 
             {txHash && (
               <a
-                href={`https://scan.bohr.life/tx/${txHash}`}
+                href={`https://scan.botchain.ai/tx/${txHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1.5 mt-4 text-xs font-medium text-purple-400 hover:text-purple-300 underline"
               >
-                <span>View Transaction on BohrScan</span>
+                <span>View Transaction on BotchainScan</span>
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
             )}
@@ -280,7 +280,7 @@ export function CreateDareModal({ isOpen, onClose, onSuccess }: CreateDareModalP
                   <span>Waiting for Botchain confirmation...</span>
                 </div>
                 <a
-                  href={`https://scan.bohr.life/tx/${txHash}`}
+                  href={`https://scan.botchain.ai/tx/${txHash}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1 underline hover:text-purple-200"

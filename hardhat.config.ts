@@ -25,6 +25,12 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 31337,
     },
+    botchainMainnet: {
+      url: "https://rpc.botchain.ai",
+      chainId: 677,
+      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+      gasPrice: 20000000000, // 20 Gwei (exact network standard, avoiding overpaying)
+    },
     botchainTestnet: {
       url: "https://rpc.bohr.life",
       chainId: 968,
@@ -33,9 +39,18 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      botchainTestnet: "abc", // Blockscout does not require an active API key
+      botchainMainnet: "abc", // Blockscout-based explorers do not require an active API key
+      botchainTestnet: "abc",
     },
     customChains: [
+      {
+        network: "botchainMainnet",
+        chainId: 677,
+        urls: {
+          apiURL: "https://scan.botchain.ai/api",
+          browserURL: "https://scan.botchain.ai",
+        },
+      },
       {
         network: "botchainTestnet",
         chainId: 968,

@@ -26,16 +26,16 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
             <div className="flex items-center space-x-1.5 rounded-lg border border-charcoal-800 bg-charcoal-900 px-3 py-1.5">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Botchain Testnet (Chain ID 968)</span>
+              <span>Botchain Mainnet (Chain ID 677)</span>
             </div>
 
             <a
-              href="https://scan.bohr.life"
+              href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 text-purple-400 hover:text-purple-300 underline"
             >
-              <span>BohrScan Explorer</span>
+              <span>BotchainScan Explorer</span>
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
@@ -50,11 +50,10 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-3 text-[11px] text-gray-400">
-            © {new Date().getFullYear()} DareMe dApp. Built for Botchain Testnet.
+            © {new Date().getFullYear()} DareMe dApp. Built on Botchain.
           </p>
         </div>
       </div>
     </footer>
   );
 }
-

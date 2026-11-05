@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
-import { botchainTestnet } from "@/config/chain";
+import { activeChain } from "@/config/chain";
 import { Zap, Wallet, AlertTriangle, CheckCircle2, ChevronDown, LogOut, Copy, Check } from "lucide-react";
 
 export function Header() {
@@ -15,7 +15,7 @@ export function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== activeChain.id;
 
   const shortenAddress = (addr?: string) => {
     if (!addr) return "";
@@ -66,19 +66,19 @@ export function Header() {
             <div>
               {isWrongNetwork ? (
                 <button
-                  onClick={() => switchChain({ chainId: botchainTestnet.id })}
+                  onClick={() => switchChain({ chainId: activeChain.id })}
                   disabled={isSwitching}
                   className="flex items-center space-x-1.5 rounded-lg border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-medium text-amber-300 hover:bg-amber-500/20 transition"
-                  title="Click to switch to Botchain Testnet"
+                  title="Click to switch to Botchain Mainnet"
                 >
                   <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
-                  <span>{isSwitching ? "Switching..." : "Switch to Botchain (968)"}</span>
+                  <span>{isSwitching ? "Switching..." : "Switch to Botchain (677)"}</span>
                 </button>
               ) : (
                 <div className="hidden sm:flex items-center space-x-1.5 rounded-lg border border-charcoal-700 bg-charcoal-900 px-3 py-1.5 text-xs text-gray-300">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Botchain Testnet</span>
-                  <span className="text-gray-500 text-[10px]">#968</span>
+                  <span>Botchain Mainnet</span>
+                  <span className="text-gray-500 text-[10px]">#677</span>
                 </div>
               )}
             </div>
@@ -135,13 +135,13 @@ export function Header() {
                     </button>
 
                     <a
-                      href={`https://scan.bohr.life/address/${address}`}
+                      href={`https://scan.botchain.ai/address/${address}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex w-full items-center space-x-2 rounded-lg px-3 py-2 text-xs text-gray-300 hover:bg-charcoal-800 transition"
                     >
                       <CheckCircle2 className="h-3.5 w-3.5 text-gray-400" />
-                      <span>View on BohrScan</span>
+                      <span>View on BotchainScan</span>
                     </a>
 
                     <button
@@ -167,10 +167,10 @@ export function Header() {
         <div className="bg-amber-950/40 border-t border-amber-500/20 px-4 py-2 text-center text-xs text-amber-200">
           <span>You are connected to an unsupported network. Please </span>
           <button
-            onClick={() => switchChain({ chainId: botchainTestnet.id })}
+            onClick={() => switchChain({ chainId: activeChain.id })}
             className="font-semibold underline hover:text-amber-100"
           >
-            switch to Botchain Testnet (Chain ID 968)
+            switch to Botchain Mainnet (Chain ID 677)
           </button>
           <span> to interact with DareMe.</span>
         </div>
@@ -185,4 +185,3 @@ export function Header() {
     </header>
   );
 }
-

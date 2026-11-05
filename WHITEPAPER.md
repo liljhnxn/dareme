@@ -79,3 +79,4 @@ stateDiagram-v2
 - **Phase 1 (Current):** Single-page dApp, open peer-to-peer dares, verified contract deployment on Botchain Testnet.
 - **Phase 2 (Community & Reputation):** On-chain badges / Soulbound proof-of-challenge tokens (SBTs) for completed dares.
 - **Phase 3 (Multi-participant & Voting):** Optional group challenge modes with community upvoting on completed dares.
+

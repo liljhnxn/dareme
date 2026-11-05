@@ -238,8 +238,8 @@ export function DareFeed({
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <Loader2 className="h-8 w-8 animate-spin text-purple-500 mb-3" />
-            <p className="text-sm text-gray-300">Loading challenges from Botchain Testnet...</p>
-            <p className="text-xs text-gray-500 mt-1">Reading contract state at RPC: rpc.bohr.life</p>
+            <p className="text-sm text-gray-300">Loading challenges from Botchain Mainnet...</p>
+            <p className="text-xs text-gray-500 mt-1">Reading contract state at RPC: rpc.botchain.ai</p>
           </div>
         ) : error ? (
           <div className="rounded-2xl border border-rose-500/20 bg-rose-950/20 p-8 text-center max-w-lg mx-auto">

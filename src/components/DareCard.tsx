@@ -5,7 +5,7 @@ import { useAccount, useWriteContract, useWaitForTransactionReceipt, useChainId 
 import { Dare, DareStatus } from "@/types/dare";
 import { DARE_ME_ABI } from "@/contracts/dareMeAbi";
 import { DARE_ME_ADDRESS } from "@/config/wagmi";
-import { botchainTestnet } from "@/config/chain";
+import { activeChain } from "@/config/chain";
 import {
   Clock,
   User,
@@ -25,7 +25,7 @@ interface DareCardProps {
 export function DareCard({ dare, onActionSuccess }: DareCardProps) {
   const { address, isConnected } = useAccount();
   const chainId = useChainId();
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== activeChain.id;
 
   const [localError, setLocalError] = useState<string | null>(null);
 
@@ -81,7 +81,7 @@ export function DareCard({ dare, onActionSuccess }: DareCardProps) {
       return;
     }
     if (isWrongNetwork) {
-      setLocalError("Please switch to Botchain Testnet (Chain ID 968).");
+      setLocalError("Please switch to Botchain Mainnet (Chain ID 677).");
       return;
     }
     if (isCreator) {
@@ -106,7 +106,7 @@ export function DareCard({ dare, onActionSuccess }: DareCardProps) {
       return;
     }
     if (isWrongNetwork) {
-      setLocalError("Please switch to Botchain Testnet (Chain ID 968).");
+      setLocalError("Please switch to Botchain Mainnet (Chain ID 677).");
       return;
     }
     if (!isParticipant) {
@@ -203,7 +203,7 @@ export function DareCard({ dare, onActionSuccess }: DareCardProps) {
               <span>Creator:</span>
             </span>
             <a
-              href={`https://scan.bohr.life/address/${dare.creator}`}
+              href={`https://scan.botchain.ai/address/${dare.creator}`}
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-purple-400 hover:text-purple-300 hover:underline flex items-center space-x-1"
@@ -220,7 +220,7 @@ export function DareCard({ dare, onActionSuccess }: DareCardProps) {
                 <span>Challenger:</span>
               </span>
               <a
-                href={`https://scan.bohr.life/address/${dare.participant}`}
+                href={`https://scan.botchain.ai/address/${dare.participant}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-gray-300 hover:text-purple-300 hover:underline flex items-center space-x-1"
@@ -276,7 +276,7 @@ export function DareCard({ dare, onActionSuccess }: DareCardProps) {
               <span>Confirming on Botchain...</span>
             </div>
             <a
-              href={`https://scan.bohr.life/tx/${txHash}`}
+              href={`https://scan.botchain.ai/tx/${txHash}`}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[11px] flex items-center space-x-0.5"
