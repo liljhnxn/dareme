@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AlertTriangle, Terminal, ArrowRight, Code } from "lucide-react";
+import { AlertTriangle, Terminal } from "lucide-react";
 
 export function ConfigNotice() {
   return (
@@ -16,7 +16,7 @@ export function ConfigNotice() {
               Contract Address Not Configured
             </h3>
             <p className="mt-1 text-sm text-gray-300">
-              The DareMe smart contract is not yet configured in this frontend. Follow these quick steps to deploy and activate the application on Botchain Testnet:
+              The DareMe smart contract is not yet configured in this frontend. Follow these quick steps to deploy and activate the application on BOT Chain:
             </p>
 
             <div className="mt-4 space-y-3">
@@ -26,14 +26,14 @@ export function ConfigNotice() {
                   <span>Step 1: Set your deployer private key in .env</span>
                 </div>
                 <code className="text-gray-300 font-mono text-[11px] block pl-6">
-                  PRIVATE_KEY=your_botchain_testnet_private_key
+                  PRIVATE_KEY=your_botchain_private_key
                 </code>
               </div>
 
               <div className="rounded-xl bg-charcoal-950/80 border border-charcoal-800 p-3.5 text-xs">
                 <div className="flex items-center space-x-2 text-purple-400 font-semibold mb-1">
                   <Terminal className="h-4 w-4" />
-                  <span>Step 2: Deploy to Botchain Testnet (Chain ID 968)</span>
+                  <span>Step 2: Deploy to BOT Chain (Chain ID 677)</span>
                 </div>
                 <code className="text-gray-300 font-mono text-[11px] block pl-6">
                   npm run deploy:botchain
@@ -46,13 +46,13 @@ export function ConfigNotice() {
                   <span>Step 3: Update .env.local with deployed contract address</span>
                 </div>
                 <code className="text-gray-300 font-mono text-[11px] block pl-6">
-                  NEXT_PUBLIC_DAREME_CONTRACT_ADDRESS=0x...
+                  NEXT_PUBLIC_DAREME_CONTRACT_ADDRESS=0x573F227e7809620f38560a57867b068E81B45FE7
                 </code>
               </div>
             </div>
 
             <p className="mt-4 text-xs text-gray-400">
-              Once configured, restart the Next.js development server or reload the page to interact with DareMe on Botchain.
+              Once configured, restart the Next.js development server or reload the page to interact with DareMe on BOT Chain.
             </p>
           </div>
         </div>
@@ -60,4 +60,3 @@ export function ConfigNotice() {
     </div>
   );
 }
-

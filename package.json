@@ -9,7 +9,7 @@
     "lint": "next lint",
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy:botchain": "hardhat run scripts/deploy.ts --network botchainTestnet"
+    "deploy:botchain": "hardhat run scripts/deploy.ts --network botchainMainnet"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.8",

@@ -3,9 +3,8 @@ import hre from "hardhat";
 const { ethers } = hre;
 
 async function main() {
-  const network = hre.network.name;
   console.log("----------------------------------------------------");
-  console.log(`Deploying DareMe contract to network: ${network}...`);
+  console.log("Deploying DareMe contract to BOT Chain Mainnet...");
   console.log("----------------------------------------------------");
 
   const [deployer] = await ethers.getSigners();
@@ -18,10 +17,9 @@ async function main() {
   console.log(`Deployer balance: ${ethers.formatEther(balance)} BOT`);
 
   const feeData = await ethers.provider.getFeeData();
-  console.log(`Current gasPrice: ${feeData.gasPrice ? ethers.formatUnits(feeData.gasPrice, "gwei") : "N/A"} Gwei`);
+  console.log(`Current gasPrice: ${feeData.gasPrice ? ethers.formatUnits(feeData.gasPrice, "gwei") : "20"} Gwei`);
 
   const DareMe = await ethers.getContractFactory("DareMe");
-  // Deploy with exact gasPrice to prevent overpaying fees
   const dareMe = await DareMe.deploy({
     gasPrice: feeData.gasPrice ?? 20000000000n,
   });
@@ -29,16 +27,11 @@ async function main() {
 
   const contractAddress = await dareMe.getAddress();
 
-  const explorerUrl =
-    network === "botchainMainnet"
-      ? `https://scan.botchain.ai/address/${contractAddress}`
-      : `https://scan.bohr.life/address/${contractAddress}`;
-
   console.log("\n====================================================");
-  console.log(` DareMe successfully deployed!`);
-  console.log(` Network: ${network}`);
+  console.log(" DareMe successfully deployed!");
+  console.log(" Network: BOT Chain Mainnet (Chain ID: 677)");
   console.log(` Contract Address: ${contractAddress}`);
-  console.log(` Explorer: ${explorerUrl}`);
+  console.log(` Explorer: https://scan.botchain.ai/address/${contractAddress}`);
   console.log("====================================================\n");
 }
 

@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 export const metadata: Metadata = {
   title: "DareMe — Drop a dare. Take the challenge.",
   description:
-    "A simple Web3 challenge dApp on Botchain Testnet. Drop a dare, take the challenge, and prove yourself.",
+    "A simple Web3 challenge dApp on BOT Chain. Drop a dare, take the challenge, and prove yourself.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -28,4 +28,3 @@ export default function RootLayout({
     </html>
   );
 }
-

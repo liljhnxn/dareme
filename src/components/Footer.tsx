@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Zap, ExternalLink, ShieldAlert } from "lucide-react";
+import { Zap, ExternalLink, ShieldAlert, Globe } from "lucide-react";
 
 export function Footer() {
   return (
@@ -10,33 +10,49 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Tagline */}
           <div className="flex items-center space-x-3 text-center md:text-left">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-950/60 border border-purple-500/30 text-purple-400">
-              <Zap className="h-4 w-4 fill-purple-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-950/60 border border-purple-500/30 text-purple-400">
+              <Zap className="h-5 w-5 fill-purple-400" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
                 <span className="text-base font-bold text-white">DareMe</span>
                 <span className="text-xs text-gray-400">— Drop a dare. Take the challenge.</span>
               </div>
-              <p className="text-[11px] text-gray-400">Peer-to-peer Web3 challenge protocol</p>
+              <p className="text-[11px] text-gray-400">Built on BOT Chain Mainnet</p>
             </div>
           </div>
 
-          {/* Network Details */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
-            <div className="flex items-center space-x-1.5 rounded-lg border border-charcoal-800 bg-charcoal-900 px-3 py-1.5">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Botchain Mainnet (Chain ID 677)</span>
+          {/* BOT Chain Ecosystem Links (Mandatory) */}
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-gray-300">
+            {/* BOT Chain Badge */}
+            <div className="flex items-center space-x-2 rounded-xl border border-charcoal-700 bg-charcoal-900/80 px-3.5 py-2 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-semibold text-white">BOT Chain</span>
+              <span className="text-[11px] text-gray-400">#677</span>
             </div>
 
+            {/* BOT Chain Website Link */}
+            <a
+              href="https://botchain.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1.5 rounded-xl border border-charcoal-800 bg-charcoal-900 px-3.5 py-2 text-gray-300 hover:border-purple-500/40 hover:text-white transition"
+            >
+              <Globe className="h-3.5 w-3.5 text-purple-400" />
+              <span>BOT Chain Website</span>
+              <ExternalLink className="h-3 w-3 text-gray-500" />
+            </a>
+
+            {/* BOT Chain Explorer Link */}
             <a
               href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1 text-purple-400 hover:text-purple-300 underline"
+              className="flex items-center space-x-1.5 rounded-xl border border-charcoal-800 bg-charcoal-900 px-3.5 py-2 text-gray-300 hover:border-purple-500/40 hover:text-white transition"
             >
-              <span>BotchainScan Explorer</span>
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-3.5 w-3.5 text-purple-400" />
+              <span>BOT Chain Explorer</span>
+              <ExternalLink className="h-3 w-3 text-gray-500" />
             </a>
           </div>
         </div>
@@ -50,7 +66,7 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-3 text-[11px] text-gray-400">
-            © {new Date().getFullYear()} DareMe dApp. Built on Botchain.
+            © {new Date().getFullYear()} DareMe dApp. Powered by BOT Chain.
           </p>
         </div>
       </div>
